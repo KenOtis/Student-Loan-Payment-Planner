@@ -1,26 +1,22 @@
 #Student Loan Planner 
 
 def LoanCalc():
-    #How many loans do you have?
-    NumberOfLoans=int(input("How many loans do you have? "))
-    #these lists will append the given loan amounts and intrest rates
+    pass
+def AmountLST(NumberOfLoans):
     AmountList=[]
-    IntrestList=[]
-    #this for loop will go through the amount of NumberOfLoans 
-    for i in range(NumberOfLoans):
-        amount=int(input("What is the loan amount? "))
+    intrestList=[]
+    for i in range (NumberOfLoans):
+        amount=float(input("What is the loan amount? "))
         AmountList.append(amount)
-        intrest=(input("What is the intrest rate? "))
-        IntrestList.append(intrest)
-    print("AmountList = ",AmountList,"IntrestList = ",IntrestList)
-    print("The Amount you owe before intrest: ",sum(AmountList))
-    return AmountList, IntrestList
-
+        intrest=float(input("What is the intrest rate? "))
+        intrestList.append(intrest)
+    return AmountList
 #How many years would you want to pay your loans off in 
-def AmountOfTime(AmountList,IntrestList):
+def AmountOfTime(AmountList):
     Time=int(input("How many Years would you like to pay off your loans? "))
     year=12 # months
     Payment=(sum(AmountList)/(year*Time))
+    print("Your Monthly payment would be: $",round(Payment,2), "A Month")
 def DailyIntrest(amount,intrest):
     pass
 
@@ -31,4 +27,9 @@ def WithIntrestPerYear(amount, intrest):
     pass 
 
 def main():
-    LoanCalc()
+    #First find out how many Loans they have 
+    NumberOfLoans=int(input("How many Loans do you have? "))
+    AmountList=AmountLST(NumberOfLoans)
+    AmountOfTime(AmountList)
+
+main()
