@@ -1,8 +1,7 @@
 #Student Loan Planner 
 
-def LoanCalc():
-    pass
 def AmountLST(NumberOfLoans):
+    #This function gathers the information from the user 
     AmountList=[]
     intrestList=[]
     for i in range (NumberOfLoans):
@@ -15,7 +14,7 @@ def AmountLST(NumberOfLoans):
 def AmountOfTime(AmountList):
     Time=int(input("How many Years would you like to pay off your loans? "))
     year=12 # months
-    Payment=(sum(AmountList)/(year*Time))
+    Payment=(sum(AmountList)/(year*Time)) 
     print("Your Monthly payment would be: $",round(Payment,2), "A Month")
 def DailyIntrest(amount,intrest):
     pass
@@ -26,10 +25,12 @@ def WithIntrestPerMonth(amount, intrest):
 def WithIntrestPerYear(amount, intrest):
     pass 
 
-def main():
-    #First find out how many Loans they have 
+def LoanCalc():
+    #find out how many Loans they have 
     NumberOfLoans=int(input("How many Loans do you have? "))
+    #call the AmountLST fucntion using the number of loans 
     AmountList=AmountLST(NumberOfLoans)
-    AmountOfTime(AmountList)
+    #using the sum of the loans, this will then divide it by the amount of time they would like to pay it off in 
+    AmountOfTime(AmountList) #The output will be the amount that the user has to pay every month
 
-main()
+LoanCalc()
