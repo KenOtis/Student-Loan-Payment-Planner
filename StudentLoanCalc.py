@@ -1,7 +1,7 @@
 #Student Loan Planner 
-
-def AmountLST(NumberOfLoans):
-    #This function gathers the information from the user 
+def LoanCalc():
+    #find out how many Loans they have 
+    NumberOfLoans=int(input("How many Loans do you have? "))
     AmountList=[]
     intrestList=[]
     for i in range (NumberOfLoans):
@@ -9,28 +9,24 @@ def AmountLST(NumberOfLoans):
         AmountList.append(amount)
         intrest=float(input("What is the intrest rate? "))
         intrestList.append(intrest)
-    return AmountList
-#How many years would you want to pay your loans off in 
-def AmountOfTime(AmountList):
-    Time=int(input("How many Years would you like to pay off your loans? "))
-    year=12 # months
-    Payment=(sum(AmountList)/(year*Time)) 
-    print("Your Monthly payment would be: $",round(Payment,2), "A Month")
-def DailyIntrest(amount,intrest):
-    pass
+    #print(AmountList)
+    #print(intrestList)
+    #Ordering the amount list by intrest rate list 
+    ziplist= list(zip(AmountList,intrestList)) #combining both lists and going to order them by intrest rate
+    #determining the payment order, Paying off the highest intrest rate off first 
+    InOrder=sorted(ziplist,key = lambda x:x[1],reverse=True)
+    print(InOrder)
+    newAL,newIntrest=zip(*InOrder)
+    print("The most effiecnt way to pay off your student loans is to pay off the loans with the highest intrest rates first.")
+    print("Your recommended payment order is: ")
+    count=0
+    for i in range(NumberOfLoans):
+        count+=1
+        print("{}.".format(count),"Pay off the loan in the amount of: ", newAL[i], "with the intrest rate of: ", newIntrest[i],"{}".format("%"))
 
-def WithIntrestPerMonth(amount, intrest):
-    pass 
+LoanCalc() 
 
-def WithIntrestPerYear(amount, intrest):
-    pass 
-
-def LoanCalc():
-    #find out how many Loans they have 
-    NumberOfLoans=int(input("How many Loans do you have? "))
-    #call the AmountLST fucntion using the number of loans 
-    AmountList=AmountLST(NumberOfLoans)
-    #using the sum of the loans, this will then divide it by the amount of time they would like to pay it off in 
-    AmountOfTime(AmountList) #The output will be the amount that the user has to pay every month
-
-LoanCalc()
+#Amount of time the individual would like to pay off each loan 
+def AmountOfTime(newAL,newIntrest):
+    time=int(input("How long would you like to pay off this loan in months? "))
+    payment=(newAL)
