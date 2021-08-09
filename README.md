@@ -1,4 +1,5 @@
 # Student-Loan-Payment-Planner
+These statements are subject to change fore this project is still in the works 
 This Script will create a student loan payment plan for you calculating both the flat rate and also caluculing the pice with the given intrest rate.
 
 There are 6 functions in this script. 
