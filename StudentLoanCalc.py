@@ -4,16 +4,16 @@ def LoanCalc():
     #find out how many Loans they have 
     NumberOfLoans=int(input("How many Loans do you have? "))
     AmountList=[]
-    intrestList=[]
+    interestList=[]
     for i in range (NumberOfLoans):
         amount=float(input("What is the loan amount? "))
         AmountList.append(amount)
-        intrest=float(input("What is the intrest rate? "))
-        intrestList.append(intrest)
+        interest=float(input("What is the interest rate? "))
+        interestList.append(interest)
     #print(AmountList)
     #print(intrestList)
     #Ordering the amount list by intrest rate list 
-    ziplist= list(zip(AmountList,intrestList)) #combining both lists and going to order them by intrest rate
+    ziplist= list(zip(AmountList,interestList)) #combining both lists and going to order them by intrest rate
     #determining the payment order, Paying off the highest intrest rate off first 
     InOrder=sorted(ziplist,key = lambda x:x[1],reverse=True)
     #print(InOrder)
